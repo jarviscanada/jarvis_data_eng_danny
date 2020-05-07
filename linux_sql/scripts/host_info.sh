@@ -49,8 +49,6 @@ statement="INSERT INTO host_info (
 	${total_mem}, 
 	'${timestamp}');"
 
-echo $statement
-
 #weird issue with PSQL ignoring -W flag,  working around it by using env var
 export PGPASSWORD=$psql_password
 psql -h $psql_host -p $psql_port -U $psql_user -d $db_name -c "$statement"
