@@ -23,7 +23,7 @@ disk_info=$(df -BM /)
 #extract usage stats
 memory_free=$(echo "$mem_specs" | egrep "^MemFree:" | awk -F':' '{print $NF}' |
 sed 's/.\{2\}$//' | xargs)
-cpu_idle=$(echo "$vmstats" | awk 'FNR == 3 {print $13}') #us field
+cpu_idle=$(echo "$vmstats" | awk 'FNR == 3 {print $15}') #us field
 cpu_kernel=$(echo "$vmstats" | awk 'FNR == 3 {print $14}') #sy field
 disk_io=$(echo "$vmstats_disk" | awk 'FNR == 3 {print $10}')
 disk_available=$(echo "$disk_info" | awk 'FNR == 2 {print $4}' | sed 's/.$//')
@@ -31,7 +31,11 @@ disk_available=$(echo "$disk_info" | awk 'FNR == 2 {print $4}' | sed 's/.$//')
 timestamp=$(echo "$vmstats" | egrep -o '[0-9]{4}-[0-9]{2}-[0-9]{2}\s[0-9]{2}:[0-9]{2}:[0-9]{2}')
 
 #construct SQL statement
-subquery="(SELECT id FROM host_info WHERE hostname = '${hostname}')"
+subquery="(SELECT 
+	id 
+	FROM host_info 
+	WHERE hostname = '${hostname}')"
+
 statement="INSERT INTO host_usage (
 	timestamp, 
 	host_id, 
