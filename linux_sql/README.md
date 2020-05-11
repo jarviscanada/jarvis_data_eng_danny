@@ -7,7 +7,7 @@ The data will be collected realtime from each node and be stored in an RDBMS. Th
 The solution presented is merely a minimum viable product (MVP), and has been tested on a single machine rather than a cluster. However, with the correct setup, the solution should perform just as well in a cluster environment. The solution also contains some sample queries to answer hypothetical business questions.
 
 ## Architecture and Design
-![table_image](/assets/Diagram.png)
+![table_image](./assets/Diagram.png)
 ### Database Tables
 host info - This table contains each node's hardware specifications. For the sake of practicality, only the most relevant specifications are recorded. This includes CPU model and clock speed, total memory, and the timestamp of when this information was captured.
 
