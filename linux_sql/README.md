@@ -9,16 +9,31 @@ The solution presented is merely a minimum viable product (MVP), and has been te
 ## Architecture and Design
 ![table_image](./assets/Diagram.png)
 ### Database Tables
-host info - This table contains each node's hardware specifications. For the sake of practicality, only the most relevant specifications are recorded. This includes CPU model and clock speed, total memory, and the timestamp of when this information was captured.
+`host_info` - This table contains each node's hardware specifications. For the sake of practicality, only the most relevant specifications are recorded. This includes CPU model and clock speed, total memory, and the timestamp of when this information was captured.  
+`id` - Serial ID of host machine in the database, auto-incremented  
+`hostname` - Name of host sysem  
+`cpu_number` - CPU core count of host system  
+`cpu_architecture` - Architecture of host CPU  
+`cpu_model` - Model name of host CPU  
+`cpu_mhz` - Core clock speed of host CPU (in MHz)  
+`L2_cache` - L2 cache size of host machine (in KB)  
+`total_mem` - Total usable memory of host machine (in KB)  
+`timestamp` - Timestamp of captured specifications  
 
-host usage - This table contains each node's resource usage at time of capture. As before, only the most relevant information is recorded. This includes CPU, memory, and disk usage.
+`host usage` - This table contains each node's resource usage at time of capture. As before, only the most relevant information is recorded. This includes CPU, memory, and disk usage.  
+`host_id` - Serial ID relating to host machine in `host_info`  
+`memory_free` - Total free memory at time of capture (KB)  
+`cpu_idle` - Percentage of CPU load idling  
+`cpu_kernel` - Percentage of CPU load operating on kernel  
+`disk_io` - Ongoing I/O operations in disk  
+`disk_available` - Amount of available disk space (in MB)  
 
 ### Scripts
-psql_docker.sh - This script contains some basic functionality to manage the PostgreSQL instance. It can be used to create new instances, and start/stop existing ones.
+`psql_docker.sh` - This script contains some basic functionality to manage the PostgreSQL instance. It can be used to create new instances, and start/stop existing ones.
 
-host_info.sh - This script is responsible for capturing a node's hardware specifications, constructing the relevant INSERT query, and executing it. This script will generally only be run once, or whenever a node's specs are changed.
+`host_info.sh` - This script is responsible for capturing a node's hardware specifications, constructing the relevant INSERT query, and executing it. This script will generally only be run once, or whenever a node's specs are changed.
 
-host_usage.sh - This script captures a node's resource usage at any given point in time. It will construct and execute the INSERT query for the data. This script is meant to be run automatically, at set time intervals for an accurate picture of a node's usage.
+`host_usage.sh` - This script captures a node's resource usage at any given point in time. It will construct and execute the INSERT query for the data. This script is meant to be run automatically, at set time intervals for an accurate picture of a node's usage.
 
 ## Usage
 ### Initialisation
