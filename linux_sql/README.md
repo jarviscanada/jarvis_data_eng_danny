@@ -42,3 +42,4 @@ The above example will run host_usage.sh at the start of every minute, and log t
 ## Improvements 
 - Detect hardware failure
 - Expand database to track other resource metrics
+- Create a single script to streamline the usage process
