@@ -57,4 +57,4 @@ statement="INSERT INTO host_usage (
 export PGPASSWORD=$psql_password
 psql -h $psql_host -p $psql_port -U $psql_user -d $db_name -c "$statement"
 
-exit 0
+exit $?
