@@ -41,20 +41,23 @@ The solution presented is merely a minimum viable product (MVP), and has been te
 The database instance runs within a Docker container. The psql_docker script can create a new container with the corresponding parameters or start an existing one.
 
 `ddl.sql`  
-This file contains the queries that create the database tables. The queries can be executed within the PostgreSQL client with \i, or the -f option on launch.
+This file contains the queries that create the database tables. The queries can be executed within the PostgreSQL client with `\i`, or the `-f` option on launch.
 
 `./host_info.sh [host address] [port] [db_name] [db_username] [db_password]`  
 To be run on each node initially, and then whenever hardware is updated.
 
 `./host_usage.sh [host address] [port] [db_name] [db_username] [db_password]`  
-To be run at regular time intervals. See below.
+To be run at regular time intervals. See: Using crontab.
+
+`queries.sql`
+This file contains a couple sample queries. That can be used on the database. The first query will group hosts by in descending order of their total memory capacity. The second query will display average host memory usage over five minute intervals.
 
 Using crontab  
-To run scripts automatically with crontab, enter edit with with `crontab -e`.
+To run scripts automatically with crontab, enter edit with with `crontab -e`.  
 `* * * * * bash/.../host_usage.sh [args] > /tmp/host_usage.log`
 The above example will run host_usage.sh at the start of every minute, and log the result of the most recent operation. Use `crontab -l` to verify the job is running.
 
 ## Improvements 
-- Detect hardware failure
+- Detect hardware failure while scripts are running
 - Expand database to track other resource metrics
 - Create a single script to streamline the usage process
