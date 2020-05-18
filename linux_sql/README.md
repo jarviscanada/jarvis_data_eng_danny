@@ -50,7 +50,7 @@ To be run on each node initially, and then whenever hardware is updated.
 To be run at regular time intervals. See: Using crontab.
 
 `queries.sql`
-This file contains a couple sample queries. That can be used on the database. The first query will group hosts by in descending order of their total memory capacity. The second query will display average host memory usage over five minute intervals.
+This file contains a couple sample queries that can be used on the database. The first query will group hosts by in descending order of their total memory capacity. The second query will display average host memory usage over five minute intervals. These are examples of insight that can be gathered using the monitoring agent.
 
 Using crontab  
 To run scripts automatically with crontab, enter edit with with `crontab -e`.  
