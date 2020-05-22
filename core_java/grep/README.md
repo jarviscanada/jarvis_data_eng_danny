@@ -14,9 +14,9 @@ First, the program will recursively traverse the provided directory, retrieving 
 ## Pseudocode
 matches = []  
 for file in listFiles(rootDir)  
-	for line in readLines(file)  
-		if containsPattern(line)  
-			matchedLines.add(line)  
+     for line in readLines(file)  
+          if containsPattern(line)  
+               matchedLines.add(line)  
 writeToFile(matchedLines)  
 
 ## Performance Issue
