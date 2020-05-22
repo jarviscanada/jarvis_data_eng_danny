@@ -128,11 +128,9 @@ public class JavaGrepImp implements JavaGrep{
    */
   @Override
   public void writeToFile(List<String> lines) throws IOException {
-    System.out.println(getOutFile());
     try {
       BufferedWriter bw = new BufferedWriter(new FileWriter(getOutFile()));
       for (String line: lines) {
-        logger.debug(line);
         bw.write(line);
         bw.write("\n");
         bw.flush();
