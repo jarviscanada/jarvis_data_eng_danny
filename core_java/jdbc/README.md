@@ -5,7 +5,7 @@ This program implements a simple interface to execute queries and read results o
 From this project, I learned more about the abstract concepts of DAO's, DTO's and the purpose they serve in separating the application from the database. I was also re-familiarized with the use of JDBC API.  
 
 ## ER Diagram
-![er_image](./assets/ER_Diagram.png)
+![er_image](./assets/ER_Diagram.jpg)
 
 
 ## Design Patterns
