@@ -12,12 +12,14 @@ First, the program will recursively traverse the provided directory, retrieving 
 `output file`: The file that will receive results on completion.
 
 ## Pseudocode
+```
 matches = []  
-for file in listFiles(rootDir)  
-&nbsp;&nbsp;&nbsp;&nbsp;for line in readLines(file)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if containsPattern(line)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;matches.add(line)  
+	for file in listFiles(rootDir)  
+		for line in readLines(file)  
+			if containsPattern(line)  
+				matches.add(line)  
 writeToFile(matches)  
+```
 
 ## Performance Issue
 The program has some limitations with regards to reading larger files. The method implemented to read files must return a `List` representing the file's contents. In effect, this means the entire file must be stored in memory to be processed. This is not an issue with most files, but an `OutOfMemoryError` will occur when the file's contents exceed main memory capacity. 
