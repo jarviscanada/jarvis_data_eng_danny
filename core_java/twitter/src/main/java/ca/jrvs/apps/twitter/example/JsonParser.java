@@ -30,9 +30,10 @@ public class JsonParser {
 
   /**
    * Parse JSON string to a object
-   * @param json JSON str
+   *
+   * @param json       JSON str
    * @param paramClass object class
-   * @param <T> Type
+   * @param <T>        Type
    * @return Object
    * @throws IOException
    */
@@ -42,7 +43,7 @@ public class JsonParser {
     return (T) m.readValue(json, paramClass);
   }
 
-  public static void main(String[] args) throws IOException{
+  public static void main(String[] args) throws IOException {
     Company company = toObjectFromJson(companyStr, Company.class);
     System.out.println(toJson(company, true, false));
   }

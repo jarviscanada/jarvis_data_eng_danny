@@ -1,16 +1,18 @@
 package ca.jrvs.apps.twitter.model;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Coordinates {
-  private float[] coordinates;
+
+  private Float[] coordinates;
   private String type;
 
-  public float[] getCoordinates() {
+  public Float[] getCoordinates() {
     return coordinates;
   }
 
-  public void setCoordinates(float[] coordinates) {
+  public void setCoordinates(Float[] coordinates) {
     this.coordinates = coordinates;
   }
 

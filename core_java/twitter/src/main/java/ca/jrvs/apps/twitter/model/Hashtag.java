@@ -1,10 +1,12 @@
 package ca.jrvs.apps.twitter.model;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Hashtag {
+
   private String text;
-  private int[] indices;
+  private Integer[] indices;
 
   public String getText() {
     return text;
@@ -14,11 +16,11 @@ public class Hashtag {
     this.text = text;
   }
 
-  public int[] getIndices() {
+  public Integer[] getIndices() {
     return indices;
   }
 
-  public void setIndices(int[] indices) {
+  public void setIndices(Integer[] indices) {
     this.indices = indices;
   }
 }

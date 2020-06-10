@@ -12,10 +12,10 @@ import org.apache.http.util.EntityUtils;
 
 public class TwitterApiExample {
 
-  private static String CONSUMER_KEY = System.getenv("consumerKey");
-  private static String CONSUMER_SECRET = System.getenv("consumerSecret");
-  private static String ACCESS_TOKEN = System.getenv("accessToken");
-  private static String TOKEN_SECRET = System.getenv("tokenSecret");
+  private static final String CONSUMER_KEY = System.getenv("consumerKey");
+  private static final String CONSUMER_SECRET = System.getenv("consumerSecret");
+  private static final String ACCESS_TOKEN = System.getenv("accessToken");
+  private static final String TOKEN_SECRET = System.getenv("tokenSecret");
 
   public static void main(String[] args) throws Exception {
 
