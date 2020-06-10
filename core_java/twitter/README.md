@@ -17,7 +17,7 @@ export tokenSecret={key}
 A complete POM.xml is included. The project can be built with `mvn package`. Note that Maven will attempt to run the packaged tests during the build. These will fail if you have not set the required access keys.
 
 ### Program execution
-Once the program has been successfully built, you will find in the /target directory. Use the following commands to execute the package:
+Once the program has been successfully built, you will find the .jar in the /target directory. Use the following commands to execute the package:
 ```  
 java -jar (jar name).jar post|show|delete [args]  
   
