@@ -1,13 +1,17 @@
 package ca.jrvs.apps.jdbc.jdbc.util;
 
+import ca.jrvs.apps.jdbc.jdbc.JDBCExecutor;
 import java.sql.*;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class DataAccessObject <T extends DataTransferObject> {
 
   protected final Connection connection;
   protected final static String LAST_VAL = "SELECT last_value FROM ";
   protected final static String CUSTOMER_SEQUENCE = "hp_customer_seq";
+  final Logger logger = LoggerFactory.getLogger(JDBCExecutor.class);
 
   public DataAccessObject(Connection connection){
     super();
@@ -30,7 +34,7 @@ public abstract class DataAccessObject <T extends DataTransferObject> {
       }
       return key;
     }catch (SQLException e){
-      e.printStackTrace();
+      logger.error(e.getMessage(), e);
       throw new RuntimeException(e);
     }
   }

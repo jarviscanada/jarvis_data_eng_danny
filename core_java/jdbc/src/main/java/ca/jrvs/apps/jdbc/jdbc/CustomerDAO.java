@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CustomerDAO extends DataAccessObject<Customer> {
   private static final String INSERT = "INSERT INTO customer (first_name, last_name,"
@@ -15,6 +17,7 @@ public class CustomerDAO extends DataAccessObject<Customer> {
   private static final String UPDATE = "UPDATE customer SET first_name=?, last_name=?,"
       + "email=?, phone=?, address=?, city=?, state=?, zipcode=? WHERE customer_id=?";
   private static final String DELETE = "DELETE FROM customer WHERE customer_id = ?";
+  final Logger logger = LoggerFactory.getLogger(JDBCExecutor.class);
 
   public CustomerDAO(Connection connection) {
     super(connection);
@@ -38,7 +41,7 @@ public class CustomerDAO extends DataAccessObject<Customer> {
         customer.setZipCode(rs.getString("zipcode"));
       }
     } catch (SQLException e) {
-      e.printStackTrace();
+      logger.error(e.getMessage(), e);
       throw new RuntimeException();
     }
     return customer;
@@ -65,7 +68,7 @@ public class CustomerDAO extends DataAccessObject<Customer> {
       statement.execute();
       customer = this.findById(dto.getId());
     } catch (SQLException e) {
-      e.printStackTrace();
+      logger.error(e.getMessage(), e);
       throw new RuntimeException(e);
     }
     return customer;
@@ -86,7 +89,7 @@ public class CustomerDAO extends DataAccessObject<Customer> {
       int id = this.getLastVal(CUSTOMER_SEQUENCE);
       return this.findById(id);
     } catch (SQLException e) {
-      e.printStackTrace();
+      logger.error(e.getMessage(), e);
       throw new  RuntimeException(e);
     }
   }
@@ -97,7 +100,7 @@ public class CustomerDAO extends DataAccessObject<Customer> {
       statement.setLong(1, id);
       statement.execute();
     } catch (SQLException e) {
-      e.printStackTrace();
+      logger.error(e.getMessage(), e);
       throw new RuntimeException(e);
     }
   }
