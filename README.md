@@ -4,7 +4,7 @@ I am a new Computer Science graduate and have been working with Jarvis Consultin
     
 ## Skills
 
-**Proficient:** Java 8, Linux/Bash, SQL, Agile/Scrum
+**Proficient:** Java 8, Linux/Bash, SQL, Agile/Scrum, Algorithm/Data Structures
 
 **Competent:** Python, Git, OOP, RDBMS, Springboot, REST APIs
 
