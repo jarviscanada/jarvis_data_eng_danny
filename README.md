@@ -1,12 +1,12 @@
 # Danny To . Jarvis Consulting
 
->I am a new Computer Science graduate and have been working with Jarvis Consulting for the past two months. I obtained my Bachelor of Science from UOIT, and worked a brief internship with Tyco International. As a new graduate, data engineering seems like the perfect intersection of everything we were taught to appreciate - technical challenges that are best solved with an analytical approach. Of course, there is also the excitement of being able to work with emerging technologies in a thriving industry.
+I am a new Computer Science graduate and have been working with Jarvis Consulting for the past two months. I obtained my Bachelor of Science from UOIT, and worked a brief internship with Tyco International. As a new graduate, data engineering seems like the perfect intersection of everything we were taught to appreciate - technical challenges that are best solved with an analytical approach. Of course, there is also the excitement of being able to work with emerging technologies in a thriving industry.
     
 ## Skills
 
-**Proficient:** Java, Bash, SQL, Agile/Scrum
+**Proficient:** Java 8, Linux/Bash, SQL, Agile/Scrum
 
-**Competent:** Python, Git, Object oriented design, Relational databases, REST APIs
+**Competent:** Python, Git, OOP, RDBMS, Springboot, REST APIs
 
 **Familiar:** C++, Javascript, Perforce
 
@@ -16,7 +16,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_danny](htt
 
 - **[Cluster Monitor](./linux_sql)**: Developed a monitoring agent to obtain hardware usage stats across a cluster of nodes. All data is automatically pulled by a bash script and inserted into a central PostgreSQL database. Also wrote some sample analytics queries.
 - **[Core Java Apps](./core_java)**: 
-     - Wrote a GREP-like Java app that searches for a regex match within all files in a given directory. Results are written to a specified output file. Utilizes Java 8 Stream APIs to read files.
+     - Wrote a Grep-like Java app that searches for a regex match within all files in a given directory. Results are written to a specified output file. Utilizes Java 8 Stream APIs to read files.
      - Developed a simple app that can connect to a PostgreSQL database using JDBC. Enables users to perform CRUD operations on the database using the DAO pattern.
      - Developed a CLI app that interacts with Twitter's REST API by forming arguments into HTTP requests. Basic functionality includes posting, deleting, and looking up Tweets. Features dependency injection using Spring framework. Also wrote a number of integration and unit tests using both JUnit and Mockito.  
 - **[SpringBoot App](./springboot)**: In progress
