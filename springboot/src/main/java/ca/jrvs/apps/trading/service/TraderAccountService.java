@@ -63,7 +63,7 @@ public class TraderAccountService {
    * @param traderId must not be null
    * @throws IllegalArgumentException if traderId is not found or null or unable to delete
    */
-  public void deleteById(Integer traderId) {
+  public void deleteTraderById(Integer traderId) {
     if (traderId <= 0 || traderId == null) {
       throw new IllegalArgumentException("Invalid Trader ID");
     }
