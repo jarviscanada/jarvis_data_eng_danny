@@ -25,7 +25,7 @@ public class QuoteDaoIntTest {
   private final Quote savedQuote = new Quote();
 
   @Before
-  public void insertSamples() {
+  public void insert() {
     savedQuote.setAskPrice(10d);
     savedQuote.setAskSize(10);
     savedQuote.setBidPrice(10.2d);
@@ -39,7 +39,7 @@ public class QuoteDaoIntTest {
   public void findTest() {
     List<Quote> quoteList = new ArrayList<>();
     quoteDao.findAll().forEach(quoteList::add);
-    Assert.assertEquals(savedQuote.getTicker(), quoteList.get(0).getTicker());
+    Assert.assertEquals(savedQuote.getId(), quoteList.get(0).getId());
   }
 
   @Test
@@ -55,7 +55,7 @@ public class QuoteDaoIntTest {
 
     Optional<Quote> result = quoteDao.findById(savedQuote.getId());
     Assert.assertTrue(result.isPresent());
-    Assert.assertEquals(newSaved.getTicker(), result.get().getTicker());
+    Assert.assertEquals(newSaved.getId(), result.get().getId());
     Assert.assertEquals(newSaved.getAskPrice(), result.get().getAskPrice());
   }
 

@@ -47,7 +47,7 @@ public class QuoteDao implements CrudRepository<Quote, String> {
    */
   @Override
   public Quote save(Quote quote) {
-    if (existsById(quote.getTicker())) {
+    if (existsById(quote.getId())) {
       int updateRowNo = updateOne(quote);
       if (updateRowNo != 1) {
         throw new DataRetrievalFailureException("Unable to update quote");
@@ -96,9 +96,8 @@ public class QuoteDao implements CrudRepository<Quote, String> {
     args.add(quote.getBidSize());
     args.add(quote.getAskPrice());
     args.add(quote.getAskSize());
-    args.add(quote.getTicker());
-    Object[] argsArray = args.toArray();
-    return argsArray;
+    args.add(quote.getId());
+    return args.toArray();
   }
 
   @Override
@@ -110,20 +109,19 @@ public class QuoteDao implements CrudRepository<Quote, String> {
   /**
    * Find a quote by ticker
    *
-   * @param s
+   * @param id
    * @return quote or Optional.empty if not found
    */
   @Override
-  public Optional<Quote> findById(String s) {
+  public Optional<Quote> findById(String id) {
     Quote quote = null;
-    String selectSql = "SELECT * FROM " + TABLE_NAME + " WHERE " + ID_COLUMN_NAME
-        + "=?";
+    String selectSql = "SELECT * FROM " + TABLE_NAME + " WHERE " + ID_COLUMN_NAME + "=?";
 
     try {
       quote = jdbcTemplate.queryForObject(selectSql,
-          BeanPropertyRowMapper.newInstance(Quote.class), s);
+          BeanPropertyRowMapper.newInstance(Quote.class), id);
     } catch (EmptyResultDataAccessException ex) {
-      logger.error("Empty result on findById: " + s, ex);
+      logger.error("Empty result on findById: " + id, ex);
     }
     if (quote == null) {
       return Optional.empty();

@@ -27,7 +27,7 @@ public class QuoteService {
 
   public List<Quote> updateMarketData() {
     List<String> tickers = new ArrayList<>();
-    quoteDao.findAll().forEach(quote -> tickers.add(quote.getTicker()));
+    quoteDao.findAll().forEach(quote -> tickers.add(quote.getId()));
 
     return saveQuotes(tickers);
 //    List<IexQuote> iexQuotes = marketDataDao.findAllById(tickers);

@@ -9,16 +9,6 @@ public class Quote implements Entity<String> {
   private Double askPrice;
   private Integer askSize;
 
-  @Override
-  public String getId() {
-    return ticker;
-  }
-
-  @Override
-  public void setId(String s) {
-    ticker = s;
-  }
-
   public Quote(String ticker, Double lastPrice, Double bidPrice, Integer bidSize,
       Double askPrice, Integer askSize) {
     this.ticker = ticker;
@@ -32,13 +22,19 @@ public class Quote implements Entity<String> {
   public Quote() {
   }
 
-  public String getTicker() {
+  @Override
+  public String getId() {
     return ticker;
   }
 
-  public void setTicker(String ticker) {
-    this.ticker = ticker;
+  @Override
+  public void setId(String s) {
+    ticker = s;
   }
+
+  public String getTicker() { return ticker; }
+
+  public void setTicker(String s) { ticker = s; }
 
   public Double getLastPrice() {
     return lastPrice;
