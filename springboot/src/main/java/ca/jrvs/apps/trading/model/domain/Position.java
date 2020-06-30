@@ -4,7 +4,7 @@ public class Position {
 
   private Integer accountId;
   private String ticker;
-  private Integer sumOfSize;
+  private Integer position;
 
   public Integer getAccountId() {
     return accountId;
@@ -22,11 +22,11 @@ public class Position {
     this.ticker = ticker;
   }
 
-  public Integer getSumOfSize() {
-    return sumOfSize;
+  public Integer getPosition() {
+    return position;
   }
 
-  public void setSumOfSize(Integer sumOfSize) {
-    this.sumOfSize = sumOfSize;
+  public void setPosition(Integer position) {
+    this.position = position;
   }
 }

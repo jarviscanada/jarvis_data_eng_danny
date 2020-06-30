@@ -28,6 +28,7 @@ public class SecurityOrderDao extends JdbcCrudDao<SecurityOrder> {
 
   private final String TABLE_NAME = "security_order";
   private final String ID_COLUMN_NAME = "id";
+  private final String ACCOUNT_ID_COLUMN = "account_id";
 
   private JdbcTemplate jdbcTemplate;
   private SimpleJdbcInsert simpleJdbcInsert;
@@ -144,6 +145,11 @@ public class SecurityOrderDao extends JdbcCrudDao<SecurityOrder> {
   @Override
   public void deleteById(Integer integer) {
     String deleteSql = "DELETE FROM " + TABLE_NAME + " WHERE " + ID_COLUMN_NAME + "=?";
+    jdbcTemplate.update(deleteSql, integer);
+  }
+
+  public void deleteByAccountId(Integer integer) {
+    String deleteSql = "DELETE FROM " + TABLE_NAME + " WHERE " + ACCOUNT_ID_COLUMN + "=?";
     jdbcTemplate.update(deleteSql, integer);
   }
 

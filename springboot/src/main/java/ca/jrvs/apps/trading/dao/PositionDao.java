@@ -1,6 +1,9 @@
 package ca.jrvs.apps.trading.dao;
 
 import ca.jrvs.apps.trading.model.domain.Position;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,21 +26,18 @@ public class PositionDao {
     return jdbcTemplate;
   }
 
-  public Optional<Position> findById(Integer id) {
-    Position position = null;
+  public List<Position> findById(Integer id) {
+    List<Position> positions = new ArrayList<>();
     String selectSql = "SELECT * FROM " + TABLE_NAME + " WHERE " + ID_COLUMN_NAME + "=?";
 
     try {
-      position = jdbcTemplate.queryForObject(selectSql,
-          BeanPropertyRowMapper.newInstance(Position.class), id);
+      positions = Arrays.asList(jdbcTemplate.queryForObject(selectSql,
+          BeanPropertyRowMapper.newInstance(Position[].class), id));
     } catch (EmptyResultDataAccessException ex) {
       logger.error("Empty result on findById: " + id, ex);
     }
 
-    if (position == null) {
-      return Optional.empty();
-    }
-    return Optional.of(position);
+    return positions;
   }
 
   public Iterable<Position> findAll() {
