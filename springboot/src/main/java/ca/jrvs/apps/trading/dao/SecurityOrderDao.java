@@ -1,6 +1,5 @@
 package ca.jrvs.apps.trading.dao;
 
-import ca.jrvs.apps.trading.model.domain.Account;
 import ca.jrvs.apps.trading.model.domain.SecurityOrder;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +29,8 @@ public class SecurityOrderDao extends JdbcCrudDao<SecurityOrder> {
   private final String ID_COLUMN_NAME = "id";
   private final String ACCOUNT_ID_COLUMN = "account_id";
 
-  private JdbcTemplate jdbcTemplate;
-  private SimpleJdbcInsert simpleJdbcInsert;
+  private final JdbcTemplate jdbcTemplate;
+  private final SimpleJdbcInsert simpleJdbcInsert;
 
   @Autowired
   public SecurityOrderDao(DataSource dataSource) {

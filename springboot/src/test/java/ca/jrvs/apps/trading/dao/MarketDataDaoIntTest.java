@@ -1,5 +1,10 @@
 package ca.jrvs.apps.trading.dao;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import ca.jrvs.apps.trading.model.config.MarketDataConfig;
 import ca.jrvs.apps.trading.model.domain.IexQuote;
 import java.util.Arrays;
@@ -31,8 +36,8 @@ public class MarketDataDaoIntTest {
     //happy path
     List<IexQuote> quoteList = marketDataDao
         .findAllById(Arrays.asList("AAPL", "FB", "AMD", "MSFT"));
-    Assert.assertEquals(4, quoteList.size());
-    Assert.assertEquals("AAPL", quoteList.get(0).getSymbol());
+    assertEquals(4, quoteList.size());
+    assertEquals("AAPL", quoteList.get(0).getSymbol());
 
     //sad path
     try {
@@ -48,7 +53,7 @@ public class MarketDataDaoIntTest {
     Optional<IexQuote> iexQuote1 = marketDataDao.findById("AAPL");
     Optional<IexQuote> iexQuote2 = marketDataDao.findById("MSFT");
 
-    Assert.assertTrue(iexQuote1.isPresent());
-    Assert.assertTrue(iexQuote2.isPresent());
+    assertTrue(iexQuote1.isPresent());
+    assertTrue(iexQuote2.isPresent());
   }
 }

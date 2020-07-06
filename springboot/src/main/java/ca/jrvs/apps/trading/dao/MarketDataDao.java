@@ -113,7 +113,7 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
     CloseableHttpClient httpClient = getHttpClient();
     HttpGet httpGet = new HttpGet(url);
     HttpResponse response;
-    String jsonString = "";
+    String jsonString = null;
     logger.debug(url);
     try {
       response = httpClient.execute(httpGet);

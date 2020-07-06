@@ -32,7 +32,7 @@ public class QuoteController {
   @ResponseBody
   public IexQuote getQuote(@PathVariable String ticker) {
     try {
-      return quoteService.findIexQuoteById(ticker);
+      return quoteService.findIexQuoteByTicker(ticker);
     } catch (Exception ex) {
       throw ResponseExceptionUtil.getResponseStatusException(ex);
     }

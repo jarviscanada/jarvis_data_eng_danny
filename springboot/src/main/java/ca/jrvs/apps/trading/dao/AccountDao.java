@@ -1,7 +1,6 @@
 package ca.jrvs.apps.trading.dao;
 
 import ca.jrvs.apps.trading.model.domain.Account;
-import ca.jrvs.apps.trading.model.domain.Trader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

@@ -1,5 +1,10 @@
 package ca.jrvs.apps.trading.dao;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import ca.jrvs.apps.trading.TestConfig;
 import ca.jrvs.apps.trading.model.domain.Trader;
 import java.sql.Date;
@@ -27,6 +32,7 @@ public class TraderDaoIntTest {
 
   @Before
   public void insert() {
+    testTrader.setId(1);
     testTrader.setFirstName("Only");
     testTrader.setLastName("Puts");
     testTrader.setCountry("Canada");
@@ -39,40 +45,41 @@ public class TraderDaoIntTest {
   public void findAllTest() {
     List<Trader> traderList = new ArrayList<>();
     traderDao.findAll().forEach(traderList::add);
-    Assert.assertEquals(testTrader.getFirstName(), traderList.get(0).getFirstName());
-    Assert.assertEquals(testTrader.getLastName(), traderList.get(0).getLastName());
-    Assert.assertEquals(testTrader.getDob(), traderList.get(0).getDob());
+    assertEquals(testTrader.getFirstName(), traderList.get(0).getFirstName());
+    assertEquals(testTrader.getLastName(), traderList.get(0).getLastName());
+    assertEquals(testTrader.getDob(), traderList.get(0).getDob());
   }
 
   @Test
   public void findByIdTest() {
     Trader trader = traderDao.findById(1).get();
-    Assert.assertNotNull(trader);
-    Assert.assertEquals(testTrader.getFirstName(), trader.getFirstName());
-    Assert.assertEquals(testTrader.getLastName(), trader.getLastName());
-    Assert.assertEquals(testTrader.getDob(), trader.getDob());
+    assertNotNull(trader);
+    assertEquals(testTrader.getFirstName(), trader.getFirstName());
+    assertEquals(testTrader.getLastName(), trader.getLastName());
+    assertEquals(testTrader.getDob(), trader.getDob());
   }
 
   @Test
-  public void findNonexistent() {
+  public void findNonExistent() {
     Optional<Trader> trader = traderDao.findById(0);
-    Assert.assertEquals(Optional.empty(), trader);
+    assertEquals(Optional.empty(), trader);
   }
 
   @Test
   public void countTest() {
     long count = traderDao.count();
-    Assert.assertEquals(1, count);
+    assertEquals(1, count);
   }
 
   @Test
   public void updateTest() {
     testTrader.setCountry("USA");
     testTrader.setEmail("hotmail");
-    Trader newTrader = traderDao.save(testTrader);
-    Assert.assertNotNull(newTrader);
-    Assert.assertEquals("USA", newTrader.getCountry());
-    Assert.assertEquals("hotmail", newTrader.getEmail());
+    traderDao.save(testTrader);
+    Trader newTrader = traderDao.findById(testTrader.getId()).orElse(null);
+    assertNotNull(newTrader);
+    assertEquals("USA", newTrader.getCountry());
+    assertEquals("hotmail", newTrader.getEmail());
   }
 
   @After

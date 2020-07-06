@@ -25,20 +25,22 @@ public class QuoteService {
     this.marketDataDao = marketDataDao;
   }
 
+  /**
+   * Update quotes by querying Iex API
+   * @return
+   */
   public List<Quote> updateMarketData() {
     List<String> tickers = new ArrayList<>();
     quoteDao.findAll().forEach(quote -> tickers.add(quote.getId()));
 
     return saveQuotes(tickers);
-//    List<IexQuote> iexQuotes = marketDataDao.findAllById(tickers);
-//    List<Quote> quotes = iexQuotes.stream().map(
-//        iexQuote -> buildQuoteFromIexQuote(iexQuote)).collect(Collectors.toList());
-//
-//    List<Quote> savedQuotes = new ArrayList<>();
-//    quoteDao.saveAll(quotes).forEach(savedQuotes::add);
-//    return savedQuotes;
   }
 
+  /**
+   * Helper to construct Quote from IexQuote data
+   * @param iexQuote
+   * @return Quote
+   */
   protected static Quote buildQuoteFromIexQuote(IexQuote iexQuote) {
     return new Quote(iexQuote.getSymbol(), iexQuote.getLatestPrice(),
         iexQuote.getIexBidPrice(), iexQuote.getIexBidSize(), iexQuote.getIexAskPrice(),
@@ -52,7 +54,7 @@ public class QuoteService {
    * @return IexQuote object
    * @throws IllegalArgumentException if ticker is invalid
    */
-  public IexQuote findIexQuoteById(String ticker) {
+  public IexQuote findIexQuoteByTicker(String ticker) {
     return marketDataDao.findById(ticker)
         .orElseThrow(() -> new IllegalArgumentException(ticker + " is invalid"));
   }
@@ -85,22 +87,6 @@ public class QuoteService {
       return quoteDao.save(savedQuote);
     }
     return null;
-  }
-
-  /**
-   * Find an IexQuote
-   *
-   * @param ticker
-   * @return IexQuote object
-   * @throws IllegalArgumentException if ticker is invalid
-   */
-  public IexQuote findIexQuoteByTicker(String ticker) {
-    Optional<IexQuote> result = marketDataDao.findById(ticker);
-    if (result.isPresent()) {
-      return result.get();
-    } else {
-      return null;
-    }
   }
 
   /**

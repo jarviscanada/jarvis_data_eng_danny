@@ -1,5 +1,11 @@
 package ca.jrvs.apps.trading.dao;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import ca.jrvs.apps.trading.TestConfig;
 import ca.jrvs.apps.trading.model.domain.Quote;
 import java.util.ArrayList;
@@ -39,24 +45,24 @@ public class QuoteDaoIntTest {
   public void findTest() {
     List<Quote> quoteList = new ArrayList<>();
     quoteDao.findAll().forEach(quoteList::add);
-    Assert.assertEquals(savedQuote.getId(), quoteList.get(0).getId());
+    assertEquals(savedQuote.getId(), quoteList.get(0).getId());
   }
 
   @Test
   public void updateTest() {
-    Quote newSaved = new Quote();
-    newSaved.setAskPrice(20d);
-    newSaved.setAskSize(20);
-    newSaved.setBidPrice(30.2d);
-    newSaved.setBidSize(30);
-    newSaved.setId("AAPL");
-    newSaved.setLastPrice(20.1d);
-    quoteDao.save(newSaved);
+    Quote updatedQuote = new Quote();
+    updatedQuote.setAskPrice(20d);
+    updatedQuote.setAskSize(20);
+    updatedQuote.setBidPrice(30.2d);
+    updatedQuote.setBidSize(30);
+    updatedQuote.setId("AAPL");
+    updatedQuote.setLastPrice(20.1d);
+    quoteDao.save(updatedQuote);
 
     Optional<Quote> result = quoteDao.findById(savedQuote.getId());
-    Assert.assertTrue(result.isPresent());
-    Assert.assertEquals(newSaved.getId(), result.get().getId());
-    Assert.assertEquals(newSaved.getAskPrice(), result.get().getAskPrice());
+    assertTrue(result.isPresent());
+    assertEquals(updatedQuote.getId(), result.get().getId());
+    assertEquals(updatedQuote.getAskPrice(), result.get().getAskPrice());
   }
 
   @Test
@@ -64,8 +70,20 @@ public class QuoteDaoIntTest {
     Assert.assertTrue(quoteDao.existsById(savedQuote.getId()));
   }
 
+  @Test
+  public void countTest() {
+    long count = quoteDao.count();
+    assertEquals(1, count);
+  }
+
+  @Test
+  public void failFindByIdTest() {
+    Quote quote = quoteDao.findById("A123").orElse(null);
+    assertNull(quote);
+  }
+
   @After
   public void deleteOne() {
-    quoteDao.deleteById(savedQuote.getId());
+    quoteDao.deleteAll();
   }
 }

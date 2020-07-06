@@ -1,11 +1,20 @@
 package ca.jrvs.apps.trading.dao;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import ca.jrvs.apps.trading.TestConfig;
 import ca.jrvs.apps.trading.model.domain.Account;
 import ca.jrvs.apps.trading.model.domain.Quote;
 import ca.jrvs.apps.trading.model.domain.SecurityOrder;
 import ca.jrvs.apps.trading.model.domain.Trader;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -70,13 +79,13 @@ public class SecurityDaoIntTest {
   public void existsTest() {
     System.out.println(testOrder.getId());
     Boolean exists = securityOrderDao.existsById(testOrder.getId());
-    Assert.assertTrue(exists);
+    assertTrue(exists);
   }
 
   @Test
   public void countTest() {
     long count = securityOrderDao.count();
-    Assert.assertEquals(1, count);
+    assertEquals(1, count);
   }
 
   @Test
@@ -85,13 +94,63 @@ public class SecurityDaoIntTest {
     testOrder.setSize(30);
     SecurityOrder newOrder = securityOrderDao.save(testOrder);
 
-    Assert.assertEquals(testOrder.getPrice(), newOrder.getPrice());
-    Assert.assertEquals(testOrder.getSize(), newOrder.getSize());
+    assertEquals(testOrder.getPrice(), newOrder.getPrice());
+    assertEquals(testOrder.getSize(), newOrder.getSize());
+  }
+
+  @Test
+  public void findByIdTest() {
+    SecurityOrder order = securityOrderDao.findById(testOrder.getId()).orElse(null);
+    assertNotNull(order);
+    assertEquals(order.getId(), testOrder.getId());
+    assertEquals(order.getAccountId(), testOrder.getAccountId());
+    assertEquals(order.getTicker(), testOrder.getTicker());
+  }
+
+  @Test
+  public void failFindByIdTest() {
+    SecurityOrder order = securityOrderDao.findById(0).orElse(null);
+    assertNull(order);
+  }
+
+  @Test
+  public void saveAllTest() {
+    SecurityOrder order1 = new SecurityOrder();
+    SecurityOrder order2 = new SecurityOrder();
+    order1.setAccountId(1);
+    order1.setSize(20);
+    order1.setStatus("FILLED");
+    order1.setTicker("AAPL");
+    order1.setId(2);
+    order2.setAccountId(1);
+    order2.setSize(20);
+    order2.setStatus("FILLED");
+    order2.setTicker("AAPL");
+    order2.setId(3);
+
+    List<SecurityOrder> orders = new ArrayList<>(Arrays.asList(order1, order2));
+    List<SecurityOrder> results = new ArrayList<>();
+    securityOrderDao.saveAll(orders).forEach(results::add);
+
+    assertEquals(2, results.size());
+    assertEquals(order1.getAccountId(), results.get(0).getAccountId());
+    assertEquals(order2.getAccountId(), results.get(1).getAccountId());
+
+    securityOrderDao.deleteById(order1.getId());
+    securityOrderDao.deleteById(order2.getId());
+  }
+
+  @Test
+  public void findAllTest() {
+    List<SecurityOrder> orders = new ArrayList<>();
+    securityOrderDao.findAll().forEach(orders::add);
+
+    assertEquals(1, orders.size());
   }
 
   @After
   public void delete() {
-    securityOrderDao.deleteById(testOrder.getId());
+    securityOrderDao.deleteByAccountId(testAccount.getId());
     accountDao.deleteById(testAccount.getId());
     traderDao.deleteById(testTrader.getId());
     quoteDao.deleteById(testQuote.getId());

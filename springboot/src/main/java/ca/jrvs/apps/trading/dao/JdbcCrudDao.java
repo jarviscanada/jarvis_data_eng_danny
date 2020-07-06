@@ -13,18 +13,23 @@ import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
-public abstract  class JdbcCrudDao<T extends Entity<Integer>> implements CrudRepository<T, Integer> {
+public abstract class JdbcCrudDao<T extends Entity<Integer>> implements CrudRepository<T, Integer> {
 
   private static final Logger logger = LoggerFactory.getLogger(JdbcCrudDao.class);
 
   abstract public JdbcTemplate getJdbcTemplate();
+
   abstract public SimpleJdbcInsert getSimpleJdbcInsert();
+
   abstract public String getTableName();
+
   abstract public String getIdColumnName();
+
   abstract Class<T> getEntityClass();
 
   /**
    * Save an entity and update auto-generated integer ID
+   *
    * @param entity to be saved
    * @return save entity
    */
@@ -66,9 +71,9 @@ public abstract  class JdbcCrudDao<T extends Entity<Integer>> implements CrudRep
     String selectSql = "SELECT * FROM" + getTableName() + " WHERE " + getIdColumnName() + "=?";
 
     try {
-      entity = Optional.ofNullable((T) getJdbcTemplate()
-        .queryForObject(selectSql,
-          BeanPropertyRowMapper.newInstance(getEntityClass()), id));
+      entity = Optional.ofNullable(getJdbcTemplate()
+          .queryForObject(selectSql,
+              BeanPropertyRowMapper.newInstance(getEntityClass()), id));
     } catch (IncorrectResultSizeDataAccessException ex) {
       logger.debug("Can't find trader id: " + id, ex);
     }

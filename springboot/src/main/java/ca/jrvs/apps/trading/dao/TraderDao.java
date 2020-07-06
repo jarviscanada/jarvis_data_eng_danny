@@ -1,6 +1,5 @@
 package ca.jrvs.apps.trading.dao;
 
-import ca.jrvs.apps.trading.model.domain.Quote;
 import ca.jrvs.apps.trading.model.domain.Trader;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,25 +37,28 @@ public class TraderDao extends JdbcCrudDao<Trader> {
   }
 
   @Override
-  public JdbcTemplate getJdbcTemplate() { return jdbcTemplate; }
+  public JdbcTemplate getJdbcTemplate() {
+    return jdbcTemplate;
+  }
 
   @Override
-  public SimpleJdbcInsert getSimpleJdbcInsert() { return simpleJdbcInsert; }
+  public SimpleJdbcInsert getSimpleJdbcInsert() {
+    return simpleJdbcInsert;
+  }
 
   @Override
-  public String getTableName() { return TABLE_NAME; }
+  public String getTableName() {
+    return TABLE_NAME;
+  }
 
   @Override
-  public String getIdColumnName() { return ID_COLUMN_NAME; }
+  public String getIdColumnName() {
+    return ID_COLUMN_NAME;
+  }
 
   @Override
-  Class<Trader> getEntityClass() { return Trader.class; }
-
-  @Override
-  public int updateOne(Trader trader) {
-    String updateSql = "UPDATE trader SET first_name=?, last_name=?, dob=?, country=?, email=?"
-        + " WHERE id=?";
-    return jdbcTemplate.update(updateSql, makeUpdateValues(trader));
+  Class<Trader> getEntityClass() {
+    return Trader.class;
   }
 
   public Trader save(Trader trader) {
@@ -87,12 +89,19 @@ public class TraderDao extends JdbcCrudDao<Trader> {
     return count > 0;
   }
 
+  @Override
+  public int updateOne(Trader trader) {
+    String updateSql = "UPDATE trader SET first_name=?, last_name=?, dob=?, country=?, email=?"
+        + " WHERE id=?";
+    return jdbcTemplate.update(updateSql, makeUpdateValues(trader));
+  }
+
   public Object[] makeUpdateValues(Trader trader) {
     List<Object> args = new ArrayList<>();
     args.add(trader.getFirstName());
     args.add(trader.getLastName());
-    args.add(trader.getCountry());
     args.add(trader.getDob());
+    args.add(trader.getCountry());
     args.add(trader.getEmail());
     args.add(trader.getId());
     return args.toArray();
@@ -110,7 +119,7 @@ public class TraderDao extends JdbcCrudDao<Trader> {
     String selectSql = "SELECT * FROM " + TABLE_NAME + " WHERE " + ID_COLUMN_NAME + "=?";
 
     try {
-      trader= jdbcTemplate.queryForObject(selectSql,
+      trader = jdbcTemplate.queryForObject(selectSql,
           BeanPropertyRowMapper.newInstance(Trader.class), id);
     } catch (EmptyResultDataAccessException ex) {
       logger.error("Empty result on findById: " + id, ex);
