@@ -1,10 +1,10 @@
 # Danny To . Jarvis Consulting
 
-I am a new Computer Science graduate and have been working with Jarvis Consulting for the past two months. I obtained my Bachelor of Science from UOIT, and worked a brief internship with Tyco International. As a new graduate, data engineering seems like the perfect intersection of everything we were taught to appreciate - technical challenges that are best solved with an analytical approach. Of course, there is also the excitement of being able to work with emerging technologies in a thriving industry.
+I am a new Computer Science graduate and have been working with Jarvis Consulting. I obtained my Bachelor of Science from University of Ontario Institute of Technology, and worked a brief internship with Tyco International. As a new graduate, software and data engineering seems like the perfect intersection of everything we were taught to appreciate - technical challenges that are best solved with an analytical approach. Of course, there is also the excitement of being able to work with emerging technologies in a thriving industry.
     
 ## Skills
 
-**Proficient:** Java 8, Linux/Bash, SQL, Agile/Scrum, Algorithm/Data Structures
+**Proficient:** Java/Springboot, Linux/Bash, SQL, Agile/Scrum, Algorithm/Data Structures
 
 **Competent:** Python, Git, OOP, RDBMS, Springboot, REST APIs
 
