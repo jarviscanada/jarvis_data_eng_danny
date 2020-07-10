@@ -1,7 +1,6 @@
 Table of contents
 * [Introduction](#introduction)
 * [Quick Start](#quick-start)
-* [Build and Run Instructions](#build-and-run-instructions)
 * [Architecture](#architecture)
 * [Docker Deployment](#docker-deployment)
 * [Improvements](#improvements)
@@ -48,7 +47,7 @@ docker run --name trading-app-dev \
 # Architecture  
 ![architecture](./assets/TradingApp.png)  
 ### Controller Layer  
-	The Controller layer is responsible for handling the user input and forming the appropriate HTTP requests. It then calls the Service layer to return the results.
+  The Controller layer is responsible for handling the user input and forming the appropriate HTTP requests. It then calls the Service layer to return the results.
   
 ### Service Layer
   The Service layer validates the contents of each request, and will accordingly throw exceptions if there is an issue. This layer also handles the business logic of executing requests. When an operation is performed, such as a buying or selling order, the Service layer ensures that it can be done without breaking database consistency.  
