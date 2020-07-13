@@ -21,7 +21,8 @@ The application uses the IEX Cloud REST API to obtain ticker information includi
   
 
 ## Build and Run Instructions
-```docker build -t trading-psql ./psql  
+```  
+docker build -t trading-psql ./psql  
 docker build -t trading-app .
   
 docker network create --driver bridge trading-net  
