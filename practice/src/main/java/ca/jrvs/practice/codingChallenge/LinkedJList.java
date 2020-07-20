@@ -8,9 +8,11 @@ import java.util.LinkedList;
  * https://www.notion.so/Duplicate-LinkedList-Node-9600b06bc93d482899981f878851bf83
  */
 public class LinkedJList {
+
   LinkedList<Integer> linkedList = new LinkedList<>();
 
-  public LinkedJList() { }
+  public LinkedJList() {
+  }
 
   public void add(Integer i) {
     linkedList.add(i);
@@ -21,22 +23,36 @@ public class LinkedJList {
   }
 
   /**
-   * Big-O: O(n)
-   * Space complexity: O(n)
-   * Justification: Iterates once over problem set, hashSet.contains is O(1) operation,
-   * hash set can go up to size n
+   * Big-O: O(n) Space complexity: O(n) Justification: Iterates once over problem set,
+   * hashSet.contains is O(1) operation, hash set can go up to size n
    */
   public void removeDuplicates() {
     Iterator iterator = linkedList.iterator();
     HashSet<Integer> hashSet = new HashSet<>();
 
-    while(iterator.hasNext()) {
-      Integer curr = (Integer)iterator.next();
+    while (iterator.hasNext()) {
+      Integer curr = (Integer) iterator.next();
       if (hashSet.contains(curr)) {
         iterator.remove();
       } else {
         hashSet.add(curr);
       }
     }
+  }
+
+  /**
+   * Helper for testing
+   */
+  public boolean hasDuplicates() {
+    Iterator iterator = linkedList.iterator();
+    HashSet<Integer> hashSet = new HashSet<>();
+
+    while (iterator.hasNext()) {
+      Integer curr = (Integer) iterator.next();
+      if (hashSet.contains(curr)) {
+        return true;
+      }
+    }
+    return false;
   }
 }

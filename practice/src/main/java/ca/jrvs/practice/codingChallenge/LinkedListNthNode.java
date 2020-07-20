@@ -7,9 +7,7 @@ package ca.jrvs.practice.codingChallenge;
 public class LinkedListNthNode<E> {
 
   /**
-   * Big-O: O(n)
-   * Space complexity: O(1)
-   * Justification: Single traversal, constant extra space used
+   * Big-O: O(n) Space complexity: O(1) Justification: Single traversal, constant extra space used
    */
   public ListNode removeNthFromEnd(ListNode head, int n) {
     ListNode dummy = new ListNode(0);
@@ -18,12 +16,12 @@ public class LinkedListNthNode<E> {
     ListNode first = dummy;
     ListNode second = dummy;
 
-    while(n >= 0 && first != null) {
+    while (n >= 0 && first != null) {
       first = first.next;
       n--;
     }
 
-    while(first != null) {
+    while (first != null) {
       first = first.next;
       second = second.next;
     }
@@ -33,9 +31,19 @@ public class LinkedListNthNode<E> {
 }
 
 class ListNode {
+
   int val;
   ListNode next;
-  ListNode() {}
-  ListNode(int val) { this.val = val; }
-  ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+
+  ListNode() {
+  }
+
+  ListNode(int val) {
+    this.val = val;
+  }
+
+  ListNode(int val, ListNode next) {
+    this.val = val;
+    this.next = next;
+  }
 }

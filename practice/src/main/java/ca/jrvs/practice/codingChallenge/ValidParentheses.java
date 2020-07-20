@@ -16,12 +16,13 @@ public class ValidParentheses {
    * Big-O: O(n)
    */
   public ValidParentheses() {
-    charMap.put(')','(');
-    charMap.put('}','{');
-    charMap.put(']','[');
+    charMap.put(')', '(');
+    charMap.put('}', '{');
+    charMap.put(']', '[');
   }
+
   public boolean isValid(String s) {
-    for(int i = 0; i < s.length(); i++) {
+    for (int i = 0; i < s.length(); i++) {
       char curr = s.charAt(i);
       if (charMap.containsKey(curr) && !stack.isEmpty()) {
         if (charMap.get(curr) == stack.peek()) {
@@ -33,9 +34,6 @@ public class ValidParentheses {
         stack.push(curr);
       }
     }
-    if (!stack.isEmpty()) {
-      return false;
-    }
-    return true;
+    return stack.isEmpty();
   }
 }

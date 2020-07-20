@@ -6,9 +6,7 @@ package ca.jrvs.practice.codingChallenge;
 public class LinkedListMidNode {
 
   /**
-   * Big-O: O(n)
-   * Space complexity: O(1)
-   * Justification: Single traversal, extra space is constant
+   * Big-O: O(n) Space complexity: O(1) Justification: Single traversal, extra space is constant
    */
   public ListNode middleNode(ListNode head) {
     ListNode first = head;

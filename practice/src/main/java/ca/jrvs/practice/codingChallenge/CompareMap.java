@@ -7,11 +7,11 @@ import java.util.Map;
  */
 public class CompareMap {
 
-  public <K,V> boolean compareUsingEquals(Map<K,V> a, Map<K,V> b) {
-    if (a.size() !=  b.size()) {
+  public <K, V> boolean compareUsingEquals(Map<K, V> a, Map<K, V> b) {
+    if (a.size() != b.size()) {
       return false;
     }
-    for (Map.Entry<K,V> entry: a.entrySet()) {
+    for (Map.Entry<K, V> entry : a.entrySet()) {
       if (!b.entrySet().contains(entry)) {
         return false;
       }

@@ -8,22 +8,27 @@ import java.util.Queue;
  */
 public class StackUsingOneQueue {
 
-  private Queue<Integer> queue = new LinkedList<>();
+  private final Queue<Integer> queue = new LinkedList<>();
   Integer top;
 
-  public StackUsingOneQueue() {}
+  public StackUsingOneQueue() {
+  }
 
-  /** Push element x onto stack. */
+  /**
+   * Push element x onto stack.
+   */
   public void push(int x) {
     queue.add(x);
     int size = queue.size();
-    while(size > 1) {
+    while (size > 1) {
       queue.add(queue.remove());
       size--;
     }
   }
 
-  /** Removes the element on top of the stack and returns that element. */
+  /**
+   * Removes the element on top of the stack and returns that element.
+   */
   public int pop() {
     return queue.remove();
   }

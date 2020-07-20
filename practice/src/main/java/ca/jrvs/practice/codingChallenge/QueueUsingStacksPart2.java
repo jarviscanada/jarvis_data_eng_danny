@@ -7,11 +7,12 @@ import java.util.Stack;
  */
 public class QueueUsingStacksPart2 {
 
-  private Stack<Integer> s1 = new Stack<>();
-  private Stack<Integer> s2 = new Stack<>();
+  private final Stack<Integer> s1 = new Stack<>();
+  private final Stack<Integer> s2 = new Stack<>();
   private Integer front;
 
-  public QueueUsingStacksPart2() {}
+  public QueueUsingStacksPart2() {
+  }
 
   public void push(int x) {
     if (s1.empty()) {
@@ -22,7 +23,7 @@ public class QueueUsingStacksPart2 {
 
   public int pop() {
     if (s2.isEmpty()) {
-      while(!s1.isEmpty()) {
+      while (!s1.isEmpty()) {
         s2.push(s1.pop());
       }
     }

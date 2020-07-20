@@ -6,10 +6,9 @@ package ca.jrvs.practice.codingChallenge;
 public class RotateString {
 
   /**
-   * Big-O: O(n)
-   * Justification: Java String contains runs at O(n)
+   * Big-O: O(n) Justification: Java String contains runs at O(n)
    */
   public boolean checkString(String a, String b) {
-    return a.length() == b.length() && (a+a).contains(b);
+    return a.length() == b.length() && (a + a).contains(b);
   }
 }

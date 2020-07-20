@@ -6,9 +6,7 @@ package ca.jrvs.practice.codingChallenge;
 public class LinkedListCycle {
 
   /**
-   * Big-O: O(n)
-   * Space complexity: O(1)
-   * Justification: 
+   * Big-O: O(n) Space complexity: O(1)
    */
   public boolean hasCycle(ListNode head) {
     if (head == null || head.next == null) {
