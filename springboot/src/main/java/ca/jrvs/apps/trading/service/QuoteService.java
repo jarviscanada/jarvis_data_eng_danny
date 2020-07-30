@@ -27,6 +27,7 @@ public class QuoteService {
 
   /**
    * Update quotes by querying Iex API
+   *
    * @return
    */
   public List<Quote> updateMarketData() {
@@ -38,6 +39,7 @@ public class QuoteService {
 
   /**
    * Helper to construct Quote from IexQuote data
+   *
    * @param iexQuote
    * @return Quote
    */

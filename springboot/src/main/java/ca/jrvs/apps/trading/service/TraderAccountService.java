@@ -41,11 +41,11 @@ public class TraderAccountService {
    */
   public TraderAccountView createTraderAndAccount(Trader trader) {
     Account account = new Account();
-    account.setId(trader.getId());
-    account.setTraderId(trader.getId());
     account.setAmount(0d);
 
-    traderDao.save(trader);
+    Trader newTrader = traderDao.save(trader);
+    account.setId(newTrader.getId());
+    account.setTraderId(newTrader.getId());
     accountDao.save(account);
 
     TraderAccountView view = new TraderAccountView();
@@ -80,6 +80,7 @@ public class TraderAccountService {
 
   /**
    * Helper method that throws exception if an account is NOT clear to be deleted
+   *
    * @param account
    * @throws IllegalArgumentException if account has above 0 balance or open positions
    */
@@ -98,15 +99,14 @@ public class TraderAccountService {
   }
 
   /**
-   * Deposit a fund to an account by traderId
-   * - validate user input
-   * - account = accountDao.findByTraderId
-   * - accountDao.updateOne
+   * Deposit a fund to an account by traderId - validate user input - account =
+   * accountDao.findByTraderId - accountDao.updateOne
+   *
    * @param traderId must not be null
-   * @param fund must be greater than 0
+   * @param fund     must be greater than 0
    * @return updated Account
-   * @throws IllegalArgumentException if traderId is null or not found,
-   * and fund is less or equal to 0
+   * @throws IllegalArgumentException if traderId is null or not found, and fund is less or equal to
+   *                                  0
    */
   public Account deposit(Integer traderId, Double fund) {
     if (traderId <= 0 || traderId == null) {
@@ -124,16 +124,14 @@ public class TraderAccountService {
 
   /**
    * Withdraw a fund to an account by traderId
-   *
-   * - validate user input
-   * - account = accountDao.findByTraderId
-   * - accountDao.updateAmountById
+   * <p>
+   * - validate user input - account = accountDao.findByTraderId - accountDao.updateAmountById
    *
    * @param traderId trader ID
-   * @param fund amount can't be 0
+   * @param fund     amount can't be 0
    * @return updated Account
-   * @throws IllegalArgumentException if traderId is null or not found,
-   * fund is less or equal to 0, and insufficient funds
+   * @throws IllegalArgumentException if traderId is null or not found, fund is less or equal to 0,
+   *                                  and insufficient funds
    */
   public Account withdraw(Integer traderId, Double fund) {
     if (traderId <= 0 || traderId == null) {

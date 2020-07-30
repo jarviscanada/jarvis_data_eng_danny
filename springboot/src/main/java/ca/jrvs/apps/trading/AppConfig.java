@@ -1,10 +1,6 @@
 package ca.jrvs.apps.trading;
 
-import ca.jrvs.apps.trading.controller.QuoteController;
-import ca.jrvs.apps.trading.dao.MarketDataDao;
-import ca.jrvs.apps.trading.dao.QuoteDao;
 import ca.jrvs.apps.trading.model.config.MarketDataConfig;
-import ca.jrvs.apps.trading.service.QuoteService;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.http.conn.HttpClientConnectionManager;
@@ -33,22 +29,6 @@ public class AppConfig {
     marketDataConfig.setHost("https://cloud.iexapis.com/v1/");
     marketDataConfig.setToken(System.getenv("IEX_PUB_TOKEN"));
     return marketDataConfig;
-  }
-
-  @Bean
-  public MarketDataDao marketDataDao(PoolingHttpClientConnectionManager cm,
-      MarketDataConfig marketDataConfig) {
-    return new MarketDataDao(cm, marketDataConfig);
-  }
-
-  @Bean
-  public QuoteService quoteService(MarketDataDao marketDataDao, QuoteDao quoteDao) {
-    return new QuoteService(quoteDao, marketDataDao);
-  }
-
-  @Bean
-  public QuoteController quoteController(QuoteService quoteService) {
-    return new QuoteController(quoteService);
   }
 
   @Bean

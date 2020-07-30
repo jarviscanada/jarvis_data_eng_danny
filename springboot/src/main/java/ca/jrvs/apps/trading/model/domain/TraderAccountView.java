@@ -1,6 +1,7 @@
 package ca.jrvs.apps.trading.model.domain;
 
 public class TraderAccountView {
+
   private Trader trader;
   private Account account;
 
