@@ -19,12 +19,24 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_danny](htt
      - Wrote a Grep-like Java app that searches for a regex match within all files in a given directory. Results are written to a specified output file. Utilizes Java 8 Stream APIs to read files.
      - Developed a simple app that can connect to a PostgreSQL database using JDBC. Enables users to perform CRUD operations on the database using the DAO pattern.
      - Developed a CLI app that interacts with Twitter's REST API by forming arguments into HTTP requests. Basic functionality includes posting, deleting, and looking up Tweets. Features dependency injection using Spring framework. Also wrote a number of integration and unit tests using both JUnit and Mockito.  
-- **[SpringBoot App](./springboot)**: In progress
+- **[SpringBoot App](./springboot)**: Developed a SpringBoot application that simulates stock trading using data acquired from a REST API. The application follows a three-tiered microservice architecture, and is built with Spring and Maven providing dependency management. Market data is retrieved from the IEX Cloud REST API and persisted into a PostgreSQL container. Simulated trader accounts and order data are also persisted. JUnit and Mockito were used for integration and unit testing. The application was Dockerized into two separate containers for ease of deployment.  
 - **[Cloud & DevOps](./cloud_devops)**: Not started
-- **[Hadoop](./hadoop)**: Not started
+- **[Hadoop](./hadoop)**: In progress
 - **[Spark/Scala](./spark)**:  Not started
 
 ## Professional Experiences  
+
+**Software Developer, Jarvis, Toronto (2020-Present):** Refining development skills by working on projects that require the use of different technologies such as PostgreSQL, Java Stream APIs, REST APIs, and Spring framework. Participating in the Scrum to become familiar with development cycles and working in a professional team environment.
+
+**Software Engineering Intern, Tyco International, Toronto (2016-2016):** Developed an automated test library using Python and Robot framework. Ran detailed regression testing in accordance with specified parameters, and communicated recurring issues to my team. Also helped train team members in the use of the new test library, and monitored their progress to ensure understanding.  
+
+## Education & Academic Projects
+
+**University of Ontario Institute of Technology (2015-2019)**, Bachelor of Science (Honours), Computer Science  
+
+- **FlipFlop:** Reddit-like app developed on Android studio. Users can post, comment on posts, and vote. All post and user data was sent to a realtime database running on Google Firebase. Data relevant to the current user was stored locally using SQLite.
+
+- **Wildfire Simulation:** A naive, 2D simulation of wildfire spread programmed in Python and realized using cellular automata. Also implements a 2D cave-generation algorithm to generate a mock forest for testing.  
 
 **Software Developer, Jarvis, Toronto (2020-Present):** Refining development skills by working on projects that require the use of different technologies such as PostgreSQL, Java Stream APIs, REST APIs, and Spring framework. Participating in the Scrum to become familiar with development cycles and working in a professional team environment.
 
