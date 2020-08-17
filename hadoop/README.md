@@ -1,6 +1,8 @@
 # Table of contents
 * [Introduction](#Introduction)
-* include all first level titles
+* [Hadoop Cluster](#hadoop-cluster)
+* [Hive Project](#hive-project)
+* [Improvements](#improvements)
 
 # Introduction
 The purpose of this project is to help the data analytics team process data using Apache Hadoop and evaluate different data analytics tools. This project utilized Google Storage to stage the dataset, before copying it into a Hadoop cluster. The cluster itself is set up on Google Cloud Platform (GCP) as a master and two workers. Data processing is carried out using Apache Hive to execute queries on the nodes.
@@ -13,9 +15,7 @@ Through this project we explored Hadoop's core components including: MapReduce, 
 
 # Hadoop Cluster
 ![architecture](./assets/Hadoop.png)  
-- cluster architecture diagram
-  - 1 master and 2 workers nodes
-  - HDFS, YARN, Zeppelin, Hive (hive Server, hive metastore, RDBMS), etc.
+
 ### HDFS
 The Hadoop Distributed File System is a distributed file system designed to be run on commodity hardware and to have high fault-tolerance. It is well suited for applications with large datasets because of the throughput access it provides to application data. 
 
@@ -31,14 +31,10 @@ Apache Hive is a data warehouse software that provides SQL functionality to dist
 ### Zeppelin
 Apache Zeppelin is a browser-based notebook that we use in this project to organize, execute and view the results of our Hive queries. Its language interpreters also allow us to interact with the HDFS via bash.
 
-
 # Hive Project
-
-- discuss the purposes of the project and what you have done.
-- Post your Zeppelin Notebook screenshot here
-	- Make sure your Notebook is nice and clean as hiring managers will visit your project
-	- use `Full Page Screen Capture` chrome extention to capture a webpage as a picture
-
+![notebook](./assets/notebook.png)
+ 
 # Improvements
-If you have more time, what would you improve?
-- at least three improvements
+- Experiment with adding and removing worker nodes and its impact on performance
+- Conduct similar experiments with larger datasets and more file types
+- Test more complex queries
