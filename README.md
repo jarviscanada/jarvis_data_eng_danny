@@ -47,7 +47,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_danny](htt
 
 ## Education
 **Ontario Tech University (2015-2019)**, Bachelor of Science (Hons), Computer Science
-- GPA: 3.6/4.0
+- GPA: 3.2/4.0
 
 
 ## Miscellaneous
