@@ -22,10 +22,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class DashboardService {
 
-  private AccountDao accountDao;
-  private TraderDao traderDao;
-  private QuoteDao quoteDao;
-  private PositionDao positionDao;
+  private final AccountDao accountDao;
+  private final TraderDao traderDao;
+  private final QuoteDao quoteDao;
+  private final PositionDao positionDao;
 
   @Autowired
   public DashboardService(AccountDao accountDao, TraderDao traderDao, QuoteDao quoteDao,
@@ -37,10 +37,9 @@ public class DashboardService {
   }
 
   /**
-   * Create and return a TraderAccountView by trader ID
-   * - get trader account by ID
-   * - get trader info by ID
-   * - create and return a TraderAccountView
+   * Create and return a TraderAccountView by trader ID - get trader account by ID - get trader info
+   * by ID - create and return a TraderAccountView
+   *
    * @param traderId must not be null
    * @return TraderAccountView
    * @throws IllegalArgumentException if trader ID is null or not found
@@ -62,10 +61,9 @@ public class DashboardService {
   }
 
   /**
-   * Create and return PortfolioView by ID
-   * - get account by trader ID
-   * - get positions by account ID
+   * Create and return PortfolioView by ID - get account by trader ID - get positions by account ID
    * - create and return a PortfolioView
+   *
    * @param traderId must not be null
    * @return PortfolioView
    * @throws IllegalArgumentException if traderId is null or not found
@@ -76,7 +74,7 @@ public class DashboardService {
     List<Position> positions = positionDao.findById(traderId);
     List<SecurityRow> securityRows = new ArrayList<>();
 
-    for (Position position: positions) {
+    for (Position position : positions) {
       String ticker = position.getTicker();
       Quote quote = quoteDao.findById(ticker).orElseThrow(
           () -> new DataRetrievalFailureException("Error retrieving quote by ticker."));

@@ -32,9 +32,13 @@ public class Quote implements Entity<String> {
     ticker = s;
   }
 
-  public String getTicker() { return ticker; }
+  public String getTicker() {
+    return ticker;
+  }
 
-  public void setTicker(String s) { ticker = s; }
+  public void setTicker(String s) {
+    ticker = s;
+  }
 
   public Double getLastPrice() {
     return lastPrice;

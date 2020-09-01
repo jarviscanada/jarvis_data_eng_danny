@@ -21,10 +21,10 @@ public class OrderService {
 
   private static final Logger logger = LoggerFactory.getLogger(OrderService.class);
 
-  private AccountDao accountDao;
-  private SecurityOrderDao securityOrderDao;
-  private QuoteDao quoteDao;
-  private PositionDao positionDao;
+  private final AccountDao accountDao;
+  private final SecurityOrderDao securityOrderDao;
+  private final QuoteDao quoteDao;
+  private final PositionDao positionDao;
 
   private final String tickerRegex = "[a-zA-Z]{1,5}";
 
@@ -38,19 +38,15 @@ public class OrderService {
   }
 
   /**
-   * Execute a market order
-   * - validate the order (e.g. size and ticker)
-   * - create a SecurityOrder (for security_order table)
-   * - handle buy or sell order
-   *  - buy order: check account balance (calls helper method)
-   *  - sell order: check position for the ticker/symbol (calls helper method)
-   *  - (please don't forget to update SecurityOrder.status)
-   * - save and return SecurityOrder
+   * Execute a market order - validate the order (e.g. size and ticker) - create a SecurityOrder
+   * (for security_order table) - handle buy or sell order - buy order: check account balance (calls
+   * helper method) - sell order: check position for the ticker/symbol (calls helper method) -
+   * (please don't forget to update SecurityOrder.status) - save and return SecurityOrder
    *
    * @param orderDto market order
    * @return SecurityOrder from security_order table
    * @throws org.springframework.dao.DataAccessException if unable to get  data from DAO
-   * @throws IllegalArgumentException for invalid input
+   * @throws IllegalArgumentException                    for invalid input
    */
   public SecurityOrder executeMarketOrder(MarketOrderDto orderDto) {
     validateOrder(orderDto);
@@ -68,6 +64,7 @@ public class OrderService {
 
   /**
    * Helper method to validate market order
+   *
    * @throws IllegalArgumentException if order is invalid size or ticker can't be found
    */
   private void validateOrder(MarketOrderDto orderDto) {
@@ -80,6 +77,7 @@ public class OrderService {
 
   /**
    * Helper method to create a SecurityOrder from MarketDataDto
+   *
    * @param orderDto
    * @return SecurityOrder
    */
@@ -94,9 +92,10 @@ public class OrderService {
 
   /**
    * Helper method to execute buy order
-   * @param orderDto user order
+   *
+   * @param orderDto      user order
    * @param securityOrder to be saved into database
-   * @param account account
+   * @param account       account
    */
   public void handleBuyMarketOrder(MarketOrderDto orderDto, SecurityOrder securityOrder,
       Account account) {
@@ -118,9 +117,10 @@ public class OrderService {
 
   /**
    * Helper method to execute sell order
-   * @param orderDto user order
+   *
+   * @param orderDto      user order
    * @param securityOrder to be saved into database
-   * @param account account
+   * @param account       account
    */
   public void handleSellMarketOrder(MarketOrderDto orderDto, SecurityOrder securityOrder,
       Account account) {

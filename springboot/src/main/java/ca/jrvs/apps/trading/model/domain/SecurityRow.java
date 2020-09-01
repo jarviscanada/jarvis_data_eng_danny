@@ -6,7 +6,8 @@ public class SecurityRow {
   private Quote quote;
   private String ticker;
 
-  public SecurityRow() {}
+  public SecurityRow() {
+  }
 
   public SecurityRow(Position position, Quote quote, String ticker) {
     this.position = position;
