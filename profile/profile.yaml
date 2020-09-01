@@ -1,0 +1,106 @@
+# Preffered name (Characters only)
+name: "Danny To"
+# Your github repo root URL
+github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_danny
+
+# Introduce yourself, your academic and professional background.
+# What excites you about the software industry and your passion. At least 80 words
+summary: I am a new Computer Science graduate and have been working with Jarvis Consulting. I obtained my Bachelor of Science from University of Ontario Institute of Technology, and worked a brief internship with Tyco International. As a new graduate, software and data engineering seems like the perfect intersection of everything we were taught to appreciate - technical challenges that are best solved with an analytical approach. Of course, there is also the excitement of being able to work with emerging technologies in a thriving industry.
+
+# Group your skills by level.
+# Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
+skills:
+  # At least 5 skills
+  proficient:
+    - Java/Springboot
+    - Linux/Bash
+    - RDBMS/SQL
+    - Agile/Scrum
+    - Git
+    - Algorithms/Data Structures
+  # At least 5 skills
+  competent:
+    - Python
+    - Git
+    - OOP
+    - RDBMS
+    - REST APIs
+  # At least 5 skills
+  familiar:
+    - C++
+    - Javascript
+    - Perforce
+    - Google Cloud Platform
+    - Docker
+# List of Jarvis projects
+jarvis_projects:
+  - name: "Cluster Monitor"
+    git_url: "/linux_sql"
+    # The project description allows hiring managers to understand your project and technologies you used(e.g. programing langauge, libraries, algorithms, hardwards, tools, etc.).
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: Developed a monitoring agent to obtain hardware usage stats across a cluster of nodes. All data is automatically pulled by a bash script and inserted into a central PostgreSQL database. Also wrote some sample analytics queries.
+  - name: "Core Java Apps"
+    git_url: "/core_java"
+    description:
+      - "Twitter App: Developed a CLI app that interacts with Twitter's REST API by forming arguments into HTTP requests. Basic functionality includes posting, deleting, and looking up Tweets. Features dependency injection using Spring framework. Also wrote a number of integration and unit tests using both JUnit and Mockito."
+      - "JDBC App: Developed a simple app that can connect to a PostgreSQL database using JDBC. Enables users to perform CRUD operations on the database using the DAO pattern."
+      - "Grep App: Wrote a Grep-like Java app that searches for a regex match within all files in a given directory. Results are written to a specified output file. Utilizes Java 8 Stream APIs to read files."
+  - name: "Springboot App"
+    git_url: "/springboot"
+    description: "Developed a SpringBoot application that simulates stock trading using data acquired from a REST API. The application follows a three-tiered microservice architecture, and is built with Spring and Maven providing dependency management. Market data is retrieved from the IEX Cloud REST API and persisted into a PostgreSQL container. Simulated trader accounts and order data are also persisted. JUnit and Mockito were used for integration and unit testing. The application was Dockerized into two separate containers for ease of deployment.  "
+  - name: "Hadoop"
+    git_url: "/hadoop"
+    description: "In progress"
+  - name: "Spark"
+    git_url: "/spark"
+    description: ""
+  - name: "Cloud/DevOps"
+    git_url: "/cloud_devops"
+    description: "In progress"
+
+# List of personal or academic projects
+# Feel free to add more projects
+highlighted_projects:
+    #project name
+  - name: "FlipFlop"
+    #URL is optional
+    git_url: "https://github.com/danny-to7/FlipFlop"
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: Developed a prototype Reddit-like app developed on Android studio. Users can post, comment on posts, and vote. All post and user data was sent to a realtime database running on Google Firebase. Data relevant to the current user was stored locally using SQLite.
+
+  - name: "Wildfire Simulation"
+    git_url: "https://github.com/danny-to7/Simulations"
+    description: Designed a naive, 2D simulation of wildfire spread programmed in Python and realized using cellular automata. Also implements a 2D cave-generation algorithm to generate a mock forest for testing.  
+
+#List of professional expereince
+#The job description allows hiring managers to understand your job and technologies you used(e.g. programing langauge, libraries, algorithms, hardwards, tools, etc.).
+#The description must be more than 25 words. If your experience is not software related, please focus on soft skills and achievements (e.g. team collaboration, problem solving, improvements, communication).
+professional_experience:
+  #Write your Jarvis role as a professional expereince rather than training.
+  - title: "Software Developer"
+    company: "Jarvis"
+    duration: "2020-present"
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Developing projects that require the use of different technologies such as PostgreSQL, Java Stream APIs, REST APIs, and Spring framework. Participating in the Scrum to become familiar with development cycles and working in a professional team environment."
+  - title: "Software Engineering Intern"
+    company: "Tyco International"
+    duration: "2016-2016"
+    description: "Developed an automated test library using Python and Robot framework. Ran detailed regression testing in accordance with specified parameters, and communicated recurring issues to my team. Also helped train team members in the use of the new test library, and monitored their progress to ensure understanding."
+
+#List of edcuation
+education: 
+  - school_name: "Ontario Tech University"
+    duration: "2015-2019"
+    degree: "Bachelor of Science (Hons)"
+    department: "Computer Science"
+    # optional
+    awards_achievements: 
+       - "GPA: 3.6/4.0"
+  
+#Optional section
+others:
+    #category
+  - title: "Awards"
+    #list of items
+    bullets:
+      - "Dean's Honours List (2015, 2016)"
