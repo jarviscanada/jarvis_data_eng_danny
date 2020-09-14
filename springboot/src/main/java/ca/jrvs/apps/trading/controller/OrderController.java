@@ -24,7 +24,7 @@ public class OrderController {
   }
 
   @PostMapping(path = "/marketOrder")
-  @ResponseStatus(HttpStatus.OK)
+  @ResponseStatus(HttpStatus.CREATED)
   @ResponseBody
   public SecurityOrder postMarketOrder(@RequestBody MarketOrderDto orderDto) {
     try {
