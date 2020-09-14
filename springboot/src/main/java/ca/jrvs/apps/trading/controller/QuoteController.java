@@ -76,7 +76,7 @@ public class QuoteController {
     notes = "Add a anew ticker/symbol to the quote table, so trader can trade this security.")
   @ApiResponses(value = {@ApiResponse(code = 404, message = "ticker is not found in IEX system")})
   @PostMapping(path = "/tickerId/{tickerId}")
-  @ResponseStatus(HttpStatus.OK)
+  @ResponseStatus(HttpStatus.CREATED)
   @ResponseBody
   public Quote createQuote(@PathVariable String tickerId) {
     try {
