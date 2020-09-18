@@ -9,10 +9,6 @@ The purpose of this project is to help the data analytics team process data usin
 
 Through this project we explored Hadoop's core components including: MapReduce, HDFS, and YARN.
 
-- Purpose of this project (please see the project kick-off ticket)
-- What you have learned or evaluated
-- Talk about the hadoop cluster, tools, and Hie project
-
 # Hadoop Cluster
 ![architecture](./assets/Hadoop.png)  
 
