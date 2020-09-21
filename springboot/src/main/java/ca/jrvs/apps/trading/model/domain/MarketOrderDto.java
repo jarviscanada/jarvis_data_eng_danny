@@ -1,6 +1,7 @@
 package ca.jrvs.apps.trading.model.domain;
 
 public class MarketOrderDto {
+
   private Integer accountId;
   private Integer size;
   private String ticker;

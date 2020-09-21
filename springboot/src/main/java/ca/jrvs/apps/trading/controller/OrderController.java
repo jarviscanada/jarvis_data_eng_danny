@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @RequestMapping("/order")
 public class OrderController {
 
-  private OrderService orderService;
+  private final OrderService orderService;
 
   @Autowired
   public OrderController(OrderService orderService) {
@@ -24,7 +24,7 @@ public class OrderController {
   }
 
   @PostMapping(path = "/marketOrder")
-  @ResponseStatus(HttpStatus.OK)
+  @ResponseStatus(HttpStatus.CREATED)
   @ResponseBody
   public SecurityOrder postMarketOrder(@RequestBody MarketOrderDto orderDto) {
     try {

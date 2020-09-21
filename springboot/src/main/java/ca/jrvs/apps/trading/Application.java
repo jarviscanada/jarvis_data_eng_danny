@@ -32,7 +32,5 @@ public class Application implements CommandLineRunner {
   }
 
   @Override
-  public void run(String... args) throws Exception {
-    quoteController.getQuote(args[0]);
-  }
+  public void run(String... args) throws Exception { }
 }
