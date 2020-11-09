@@ -33,34 +33,12 @@ SELECT SUM(unit_price * quantity)
 FROM retail;
 
 -- Calculate total revenue by YYYYMM 
-SELECT SUM(unit_price * quantity), date_trunc(invoice_date)
-FROM retail
-GROUP BY  date_trunc(invoice_date);
-
 SELECT (
 	CAST(EXTRACT(YEAR FROM invoice_date) AS INTEGER) * 100
 	+
 	CAST(EXTRACT(MONTH FROM invoice_date) AS INTEGER)
 	) AS yyyymm,
 	SUM(unit_price * quantity)
-FROM retail
-GROUP BY yyyymm
-ORDER BY yyyymm;
-
-SELECT AVG(a.amount) 
-FROM (
-	SELECT invoice_no, 
-	SUM(unit_price * quantity) AS amount
-	FROM retail
-	GROUP BY invoice_no
-	) as a;
-
-SELECT (
-	CAST(EXTRACT(YEAR FROM invoice_date) AS INTEGER) * 100
-	+
-	CAST(EXTRACT(MONTH FROM invoice_date) AS INTEGER)
-	) AS yyyymm,
-	
 FROM retail
 GROUP BY yyyymm
 ORDER BY yyyymm;
