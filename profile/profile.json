@@ -56,7 +56,7 @@
     {
       "name": "Cloud/DevOps",
       "git_url": "/cloud_devops",
-      "description": "In progress"
+      "description": "Deployed Springboot application onto Amazon Web Services. Configured environment to take advantage of AWS features like auto-scaling and automated deployment. Worked with Jenkins to create a CI/CD pipeline to automatically perform builds and deployments."
     },
     {
       "name": "Spark",

@@ -27,7 +27,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_danny](htt
 
 **Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_danny/tree/master/hadoop)]: Provisioned a Hadoop cluster on Google Cloud Platform to evaluate data analytics tools and Hadoop's central components. Performed Apache Hive queries on the provided dataset through Zeppelin notebook and evaluated performance differences of storing data in different formats and with partitions. Techniques that were explored in particular included dynamic partitioning of tables, and query performance improvements when using columnar files.
 
-**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_danny/tree/master/cloud_devops)]: In progress
+**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_danny/tree/master/cloud_devops)]: Deployed Springboot application onto Amazon Web Services. Configured environment to take advantage of AWS features like auto-scaling and automated deployment. Worked with Jenkins to create a CI/CD pipeline to automatically perform builds and deployments.
 
 **Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_danny/tree/master/spark)]: In progress
 

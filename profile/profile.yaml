@@ -55,7 +55,7 @@ jarvis_projects:
     description: "Provisioned a Hadoop cluster on Google Cloud Platform to evaluate data analytics tools and Hadoop's central components. Performed Apache Hive queries on the provided dataset through Zeppelin notebook and evaluated performance differences of storing data in different formats and with partitions. Techniques that were explored in particular included dynamic partitioning of tables, and query performance improvements when using columnar files."
   - name: "Cloud/DevOps"
     git_url: "/cloud_devops"
-    description: "In progress"
+    description: "Deployed Springboot application onto Amazon Web Services. Configured environment to take advantage of AWS features like auto-scaling and automated deployment. Worked with Jenkins to create a CI/CD pipeline to automatically perform builds and deployments."
   - name: "Spark"
     git_url: "/spark"
     description: "In progress"
