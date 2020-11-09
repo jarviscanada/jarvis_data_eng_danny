@@ -18,20 +18,22 @@ skills:
     - Agile/Scrum
     - Git
     - Algorithms/Data Structures
+    - Docker
+    - REST APIs
   # At least 5 skills
   competent:
     - Python
-    - Git
+    - Data Analytics (Zeppelin, Jupyter)
     - OOP
-    - RDBMS
-    - REST APIs
+    - JUnit
+    - HTML/CSS
   # At least 5 skills
   familiar:
     - C++
     - Javascript
     - Perforce
     - Google Cloud Platform
-    - Docker
+    - Jenkins
 # List of Jarvis projects
 jarvis_projects:
   - name: "Cluster Monitor"
@@ -50,14 +52,14 @@ jarvis_projects:
     description: "Developed a SpringBoot application that simulates stock trading using data acquired from a REST API. The application follows a three-tiered microservice architecture, and is built with Spring and Maven providing dependency management. Market data is retrieved from the IEX Cloud REST API and persisted into a PostgreSQL container. Simulated trader accounts and order data are also persisted. JUnit and Mockito were used for integration and unit testing. The application was Dockerized into two separate containers for ease of deployment.  "
   - name: "Hadoop"
     git_url: "/hadoop"
-    description: "In progress"
-  - name: "Spark"
-    git_url: "/spark"
-    description: ""
+    description: "Provisioned a Hadoop cluster on Google Cloud Platform to evaluate data analytics tools and Hadoop's central components. Performed Apache Hive queries on the provided dataset through Zeppelin notebook and evaluated performance differences of storing data in different formats and with partitions. Techniques that were explored in particular included dynamic partitioning of tables, and query performance improvements when using columnar files."
   - name: "Cloud/DevOps"
     git_url: "/cloud_devops"
     description: "In progress"
-
+  - name: "Spark"
+    git_url: "/spark"
+    description: "In progress"
+  
 # List of personal or academic projects
 # Feel free to add more projects
 highlighted_projects:
@@ -95,7 +97,7 @@ education:
     department: "Computer Science"
     # optional
     awards_achievements: 
-       - "GPA: 3.6/4.0"
+       - "GPA: 3.2/4.0"
   
 #Optional section
 others:

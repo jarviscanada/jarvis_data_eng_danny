@@ -1,16 +1,14 @@
-
 # Danny To . Jarvis Consulting
 
-I am a new Computer Science graduate and have been working with Jarvis Consulting. I obtained my Bachelor's of Science from UOIT and worked a brief internship with Tyco International. As a new graduate, software and data engineering seem like the perfect intersection of everything we were taught to appreciate - technical challenges that are best solved with an analytical approach. Of course, there is also the excitement of being able to work with emerging technologies in a thriving industry.
-
+I am a new Computer Science graduate and have been working with Jarvis Consulting. I obtained my Bachelor of Science from University of Ontario Institute of Technology, and worked a brief internship with Tyco International. As a new graduate, software and data engineering seems like the perfect intersection of everything we were taught to appreciate - technical challenges that are best solved with an analytical approach. Of course, there is also the excitement of being able to work with emerging technologies in a thriving industry.
 
 ## Skills
 
-**Proficient:** Java/Springboot, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git, Algorithms/Data Structures
+**Proficient:** Java/Springboot, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git, Algorithms/Data Structures, Docker, REST APIs
 
-**Competent:** Python, Git, OOP, RDBMS, REST APIs
+**Competent:** Python, Data Analytics (Zeppelin, Jupyter), OOP, JUnit, HTML/CSS
 
-**Familiar:** C++, Javascript, Perforce, Google Cloud Platform, Docker
+**Familiar:** C++, Javascript, Perforce, Google Cloud Platform, Jenkins
 
 ## Jarvis Projects
 
@@ -21,20 +19,21 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_danny](htt
 
 **Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_danny/tree/master/core_java)]:
       
-  - Twitter App: Developed a CLI app that interacts with Twitter's REST API by forming arguments into HTTP requests. Basic functionality includes posting, deleting, and looking up Tweets. Features dependency injection using Spring framework. Also wrote several integration and unit tests using both JUnit and Mockito.
+  - Twitter App: Developed a CLI app that interacts with Twitter's REST API by forming arguments into HTTP requests. Basic functionality includes posting, deleting, and looking up Tweets. Features dependency injection using Spring framework. Also wrote a number of integration and unit tests using both JUnit and Mockito.
   - JDBC App: Developed a simple app that can connect to a PostgreSQL database using JDBC. Enables users to perform CRUD operations on the database using the DAO pattern.
   - Grep App: Wrote a Grep-like Java app that searches for a regex match within all files in a given directory. Results are written to a specified output file. Utilizes Java 8 Stream APIs to read files.
 
-**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_danny/tree/master/springboot)]: Developed a SpringBoot application that simulates stock trading using data acquired from a REST API. The application follows a three-tiered microservice architecture and is built with Spring and Maven providing dependency management. Market data is retrieved from the IEX Cloud REST API and persisted in a PostgreSQL container. Simulated trader accounts and order data are also persisted. JUnit and Mockito were used for integration and unit testing. The application was Dockerized into two separate containers for ease of deployment.  
+**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_danny/tree/master/springboot)]: Developed a SpringBoot application that simulates stock trading using data acquired from a REST API. The application follows a three-tiered microservice architecture, and is built with Spring and Maven providing dependency management. Market data is retrieved from the IEX Cloud REST API and persisted into a PostgreSQL container. Simulated trader accounts and order data are also persisted. JUnit and Mockito were used for integration and unit testing. The application was Dockerized into two separate containers for ease of deployment.  
 
-**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_danny/tree/master/hadoop)]: Provisioned a Hadoop cluster on Google Cloud Platform to evaluate data analytics tools and Hadoop's central components. Performed Apache Hive queries on the provided dataset through Zeppelin notebook and evaluated performance differences of storing data in different formats and with partitions.
+**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_danny/tree/master/hadoop)]: Provisioned a Hadoop cluster on Google Cloud Platform to evaluate data analytics tools and Hadoop's central components. Performed Apache Hive queries on the provided dataset through Zeppelin notebook and evaluated performance differences of storing data in different formats and with partitions. Techniques that were explored in particular included dynamic partitioning of tables, and query performance improvements when using columnar files.
 
-**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_danny/tree/master/cloud_devops)]: Deployed Springboot application onto Amazon Web Services. Configured environment to take advantage of AWS features like auto-scaling and automated deployment. Worked with Jenkins to create a CI/CD pipeline to automatically perform builds and deployments.
+**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_danny/tree/master/cloud_devops)]: In progress
 
-**Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_danny/tree/master/spark)]: Not Started
+**Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_danny/tree/master/spark)]: In progress
+
 
 ## Highlighted Projects
-**FlipFlop** [[GitHub](https://github.com/danny-to7/FlipFlop)]: Developed a prototype Reddit-like app developed on Android studio. Users can post, comment on posts, and vote. All posts and user data were sent to a real-time database running on Google Firebase. Data relevant to the current user was stored locally using SQLite.
+**FlipFlop** [[GitHub](https://github.com/danny-to7/FlipFlop)]: Developed a prototype Reddit-like app developed on Android studio. Users can post, comment on posts, and vote. All post and user data was sent to a realtime database running on Google Firebase. Data relevant to the current user was stored locally using SQLite.
 
 **Wildfire Simulation** [[GitHub](https://github.com/danny-to7/Simulations)]: Designed a naive, 2D simulation of wildfire spread programmed in Python and realized using cellular automata. Also implements a 2D cave-generation algorithm to generate a mock forest for testing.
 
