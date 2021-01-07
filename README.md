@@ -29,7 +29,9 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_danny](htt
 
 **Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_danny/tree/master/cloud_devops)]: Deployed Springboot application onto Amazon Web Services. Configured environment to take advantage of AWS features like auto-scaling and automated deployment. Worked with Jenkins to create a CI/CD pipeline to automatically perform builds and deployments.
 
-**Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_danny/tree/master/spark)]: In progress
+**Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_danny/tree/master/spark)]: Evaluated Spark as a big data analytics tool. Provisioned clusters on both Google Cloud and Azure Databricks. Performed analytics on datasets using Spark's Structured APIs and Pyspark.
+
+**Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_danny/tree/master/python_data_wrangling)]: Performed analytics on a sample dataset provided by a web-based retailer to answer crucial business questions. Worked with Pandas DataFrame in a Jupyter notebook.
 
 
 ## Highlighted Projects

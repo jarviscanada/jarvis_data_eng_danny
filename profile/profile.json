@@ -61,7 +61,12 @@
     {
       "name": "Spark",
       "git_url": "/spark",
-      "description": "In progress"
+      "description": "Evaluated Spark as a big data analytics tool. Provisioned clusters on both Google Cloud and Azure Databricks. Performed analytics on datasets using Spark's Structured APIs and Pyspark."
+    },
+    {
+      "name": "Python Data Analytics",
+      "git_url": "/python_data_wrangling",
+      "description": "Performed analytics on a sample dataset provided by a web-based retailer to answer crucial business questions. Worked with Pandas DataFrame in a Jupyter notebook."
     }
   ],
   "highlighted_projects": [

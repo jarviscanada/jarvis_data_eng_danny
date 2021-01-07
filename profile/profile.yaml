@@ -58,7 +58,10 @@ jarvis_projects:
     description: "Deployed Springboot application onto Amazon Web Services. Configured environment to take advantage of AWS features like auto-scaling and automated deployment. Worked with Jenkins to create a CI/CD pipeline to automatically perform builds and deployments."
   - name: "Spark"
     git_url: "/spark"
-    description: "In progress"
+    description: "Evaluated Spark as a big data analytics tool. Provisioned clusters on both Google Cloud and Azure Databricks. Performed analytics on datasets using Spark's Structured APIs and Pyspark."
+  - name: "Python Data Analytics"
+    git_url: "/python_data_wrangling"
+    description: "Performed analytics on a sample dataset provided by a web-based retailer to answer crucial business questions. Worked with Pandas DataFrame in a Jupyter notebook."
   
 # List of personal or academic projects
 # Feel free to add more projects
